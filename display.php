@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+// accepts an array of product and displays its information using a foreach loop
 function displayCatalog(array $products): void
 {
     foreach ($products as $description) {
