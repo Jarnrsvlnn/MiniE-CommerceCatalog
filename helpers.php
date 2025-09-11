@@ -72,3 +72,6 @@ function calculateTotalValue(array $products): void
 
 // used the arrow function to create a callback function that will update the price of a given product from the function displayDiscountedItem()
 $applyDiscount = fn(int|float $price, float $discount = 0.10) => $price - ($price * $discount);
+
+// used an arrow function to create a callback function to increase the price of products
+$increasePrice = fn(array $product, float $increase = 0.20) => $product['productPrice'] + ($product['productPrice'] * $increase);

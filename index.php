@@ -61,3 +61,5 @@ calculateTotalValue($products);
 echo '<br/><br/>';
 
 displayDiscountedItem($applyDiscount, $products, 'IPhone X');
+echo '<br/><br/>';
+displayPriceIncrease($increasePrice, $products, 0.20);

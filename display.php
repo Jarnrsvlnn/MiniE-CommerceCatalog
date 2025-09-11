@@ -43,3 +43,12 @@ function displayDiscountedItem(callable $applyDiscount, array &$products, string
 
     echo "The item $productName which has a base price of $formerPrice has been applied a discount which brings it down to the discounted price of $discountedPrice!";
 }
+
+function displayPriceIncrease(callable $increasePrice, array &$products, float $increasePercent): void
+{
+    $products = array_map($increasePrice($products, $increasePercent), $products);
+
+    foreach ($products as $product) {
+        echo 'Product: ' . $product['productName'] . ' | Price: ' . $product['productPrice'] . ' | Category: ' . $product['category'] . ' | Stock: ' . $product['stock'] . '<br/>';
+    }
+}
