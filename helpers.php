@@ -59,6 +59,12 @@ function stockHealthRate(callable $callback, array $products): void
     else echo 'Out of stock!';
 }
 
-function calculateTotalValue($producs) {
-    
+function calculateTotalValue(array $products): void {
+    $totalStoreValue = 0;
+
+    foreach($products as $product) {
+        $totalStoreValue += ($product['productPrice'] * $product['stock']);
+    }
+
+    echo "The total store value is $totalStoreValue";
 }

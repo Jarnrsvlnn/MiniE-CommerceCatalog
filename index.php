@@ -56,3 +56,5 @@ productCount($products);
 echo '<br/><br/>';
 
 stockHealthRate('getTotalStock', $products);
+echo '<br/><br/>';
+calculateTotalValue($products);
