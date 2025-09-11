@@ -58,3 +58,6 @@ echo '<br/><br/>';
 stockHealthRate('getTotalStock', $products);
 echo '<br/><br/>';
 calculateTotalValue($products);
+echo '<br/><br/>';
+
+displayDiscountedItem($applyDiscount, $products, 'IPhone X');

@@ -59,12 +59,16 @@ function stockHealthRate(callable $callback, array $products): void
     else echo 'Out of stock!';
 }
 
-function calculateTotalValue(array $products): void {
+function calculateTotalValue(array $products): void
+{
     $totalStoreValue = 0;
 
-    foreach($products as $product) {
+    foreach ($products as $product) {
         $totalStoreValue += ($product['productPrice'] * $product['stock']);
     }
 
     echo "The total store value is $totalStoreValue";
 }
+
+// used the arrow function to create a callback function that will update the price of a given product from the function displayDiscountedItem()
+$applyDiscount = fn(int|float $price, float $discount = 0.10) => $price - ($price * $discount);
