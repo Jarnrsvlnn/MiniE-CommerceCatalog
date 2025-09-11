@@ -21,8 +21,8 @@ $products = [
         'stock' => 36
     ],
     [
-        'productName' => "IPhone 14",
-        'productPrice' => 39_000.99,
+        'productName' => "IPhone X",
+        'productPrice' => 19_999.99,
         'category' => 'Electronics',
         'stock' => 24
     ],
@@ -44,3 +44,11 @@ displayCatalog($products);
 echo '<br/>';
 convertPrice($products);
 displayCatalog($products);
+
+addNewProduct('Lenovo Legion', 69_999.00, 'Electronics', 83, $products);
+echo '<br/>';
+displayCatalog($products);
+removeProduct('IPhone 14', $products);
+echo '<br/>';
+displayCatalog($products);
+

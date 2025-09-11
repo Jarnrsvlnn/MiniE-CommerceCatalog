@@ -8,3 +8,27 @@ function convertPrice(array &$products): void {
         $description['productPrice'] = (int) $description['productPrice'];
     }
 }
+
+// adds a new product to the products array
+function addNewProduct(string $productName, int|float $productPrice, string $category, int $stock, array &$products): void{
+    $products[] = [
+        'productName' => $productName,
+        'productPrice' => $productPrice,
+        'category' => $category,
+        'stock' => $stock
+    ];
+}
+
+// removes an item from the array using unset() and tthen re-indexes it 
+function removeProduct(string $productName, array &$products): void {
+    $arrayLength = count($products);
+
+    // loop through the products array to find the index of the picked item to be removed
+    for($i = 0; $i < $arrayLength; $i++) {
+        if($products[$i]['productName'] === $productName) {
+            unset($products[$i]);
+            $products = array_values($products);
+            break;
+        }
+    }
+}
