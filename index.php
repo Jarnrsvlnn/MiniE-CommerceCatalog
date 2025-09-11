@@ -51,4 +51,8 @@ displayCatalog($products);
 removeProduct('IPhone 14', $products);
 echo '<br/>';
 displayCatalog($products);
+echo '<br/>';
+productCount($products);
+echo '<br/><br/>';
 
+stockHealthRate('getTotalStock', $products);
