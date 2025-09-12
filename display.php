@@ -46,8 +46,15 @@ function displayDiscountedItem(callable $applyDiscount, array &$products, string
 
 function displayPriceIncrease(callable $increasePrice, array &$products, float $increasePercent): void
 {
-    $products = array_map($increasePrice($products, $increasePercent), $products);
+    /**
+     * What happens here is that each element of the passed array "$products" 
+     * is passed to the arrow function fn($product) as its parameter so fn($product) == each element of $products array
+     * and in which the fn($product) parameter is also passed to the callback function $increasePrice
+     * as its first parameter and then performs and modifies the original array "$products"
+     */
+    $products = array_map(fn($product) => $increasePrice($product, $increasePercent), $products);
 
+    echo 'A 20% Increase has been applied to all products!<br/>';
     foreach ($products as $product) {
         echo 'Product: ' . $product['productName'] . ' | Price: ' . $product['productPrice'] . ' | Category: ' . $product['category'] . ' | Stock: ' . $product['stock'] . '<br/>';
     }

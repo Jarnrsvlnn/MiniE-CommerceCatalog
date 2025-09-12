@@ -71,7 +71,22 @@ function calculateTotalValue(array $products): void
 }
 
 // used the arrow function to create a callback function that will update the price of a given product from the function displayDiscountedItem()
-$applyDiscount = fn(int|float $price, float $discount = 0.10) => $price - ($price * $discount);
+$applyDiscount = fn(int|float $price, float $discount = 0.10) 
+    => $price - ($price * $discount);
 
 // used an arrow function to create a callback function to increase the price of products
-$increasePrice = fn(array $product, float $increase = 0.20) => $product['productPrice'] + ($product['productPrice'] * $increase);
+$increasePrice = fn(array $product, float $increase = 0.20) => [...$product, 
+    'productPrice' => $product['productPrice'] + ($product['productPrice'] * $increase)
+];
+
+/**
+ * what happened above is that after creating the arrow function it will return
+ * whatever the => is pointing to and then which are the contents inside the [],
+ * and by enclosing it with [], it becomes a literal array and will return that
+ * literal array as a callback (since this function is a callable function), and
+ * then inside we have a splat operator (...$product) in which it will give that new array
+ * all of its elements and contents (the associative elements we have in our array), and
+ * then in index [1] of our new array it will set the element 'productPrice' to its
+ * new value, since we know that if theres similar keys inside an array, it will override that 
+ *  and use the new value (in our case the old price will be replaced with the increase price)
+ */
